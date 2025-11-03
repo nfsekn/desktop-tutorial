@@ -1,7 +1,7 @@
 <?php
 require_once 'db_connect.php';
 
-// Meyve ekleme işlemi
+
 if (isset($_POST['ekle'])) {
     $meyve_adi = $_POST['meyve_adi'];
     $kilo_fiyati = $_POST['kilo_fiyati'];
@@ -13,7 +13,7 @@ if (isset($_POST['ekle'])) {
     header("Location: admin.php");
 }
 
-// Meyve silme işlemi
+
 if (isset($_GET['sil'])) {
     $id = $_GET['sil'];
     $sql = "DELETE FROM meyveler WHERE id = :id";
@@ -23,7 +23,7 @@ if (isset($_GET['sil'])) {
     header("Location: admin.php");
 }
 
-// Meyveleri listele
+
 $sql = "SELECT * FROM meyveler ORDER BY meyve_adi";
 $stmt = $conn->query($sql);
 $meyveler = $stmt->fetchAll();
