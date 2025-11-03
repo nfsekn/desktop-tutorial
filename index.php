@@ -1,12 +1,11 @@
 <?php
 require_once 'db_connect.php';
 
-// Meyveleri listele
+
 $sql = "SELECT * FROM meyveler ORDER BY meyve_adi";
 $stmt = $conn->query($sql);
 $meyveler = $stmt->fetchAll();
 
-// Sipariş hesaplama
 $toplam = 0;
 if (isset($_POST['hesapla'])) {
     foreach ($_POST['kilo'] as $id => $kilo) {
